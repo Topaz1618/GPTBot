@@ -28,6 +28,7 @@
         }
 
         .copy-button {
+            height: 20px;
             padding: 4px 8px;
             background-color: #343542;
             color: #fff;
@@ -35,6 +36,7 @@
             border-radius: 4px;
             cursor: pointer;
             gap: 0.5rem;
+            display: inherit;
         }
     </style>
 
@@ -48,12 +50,15 @@
             <span id="programming_language" class="language">JavaScript</span>
 
             <button class="copy-button" onclick="copyContent()">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="height: 12px;">
-                    <path d="M16.02 20.96H3.78c-.41 0-.75-.34-.75-.75V7.74c0-.41.34-.75.75-.75h7.87c.21 0 .39.08.53.22l4.37 4.37c.14.14.22.32.22.53v8.11c0 .4-.34.74-.75.74ZM4.53 19.47h10.75v-6.61h-3.62c-.41 0-.75-.34-.75-.75V8.48H4.53v10.99Z"></path>
-                    <path d="m20.74 7.63-4.37-4.37c-.14-.14-.36-.2-.53-.22H8.01c-.41 0-.75.34-.75.75V5.5h1.49v-.97h6.34v3.62c0 .41.34.75.75.75h3.62v8.19h-1.2v1.49h1.95c.41 0 .75-.34.75-.75V8.16c0-.21-.08-.4-.22-.53Z"></path>
-                </svg>
-                Copy
+                <svg style="height: 16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V5C19 3.89543 18.1046 3 17 3Z"></path>
+  <path d="M15 1H9C7.89543 1 7 1.89543 7 3V5H17V3C17 1.89543 16.1046 1 15 1Z"></path>
+  <path d="M8 9H16"></path>
+</svg>
+
+                <span style="height: 16px"> Copy code </span>
             </button>
+
         </div>
         <pre>
             <code id="code" class="language-javascript">
@@ -84,7 +89,15 @@ function greet() {
 
             navigator.clipboard.writeText(content)
               .then(function() {
-                // alert('内容已成功复制到剪贴板！');
+                  var button = document.querySelector('.copy-button');
+                  var originalText = button.innerHTML;
+
+                  button.innerHTML = "✔️ Copied";
+                  button.style.height = "26px"
+                  button.style.lineHeight = "20px";
+                  setTimeout(function() {
+                    button.innerHTML = originalText;
+                  }, 2000); // 2秒后恢复原始文本
               })
               .catch(function(error) {
                 console.error('复制失败：', error);
