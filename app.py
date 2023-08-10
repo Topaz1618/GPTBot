@@ -30,6 +30,16 @@ from redis_conn import save_message
 
 class IndexHandler(tornado.web.RequestHandler):
     async def get(self):
+        self.gpt = GptHandler()
+        conversation_history = self.gpt.get_conversation_history()
+        print(conversation_history)
+
+        self.render("index.html", data=conversation_history)
+
+
+
+class CodeBlockHandler(tornado.web.RequestHandler):
+    async def get(self):
         self.render("test.html")
 
 
@@ -67,35 +77,6 @@ class ChatHandler(tornado.websocket.WebSocketHandler):
                 idx += 1
 
 
-#         l = """
-#          user
-#  authentication
-#  and
-#  access
-#  control
-# .
-#
-#
-# 5
-# .
-#  Admin
-#  interface
-# :
-#  Django
-#  automatically
-#  generates
-#         """
-#         idx = 0
-#         for chunk in l :
-#             print(chunk)
-#             if idx == 0:
-#                 self.write_message("start")
-#
-#             self.write_message(chunk)
-#
-#             idx += 1
-
-
     def on_close(self):
         print("WebSocket closed")
 
@@ -111,6 +92,7 @@ if __name__ == '__main__':
     app = tornado.web.Application([
         (r'/', IndexHandler),
         (r'/ws', ChatHandler),
+        (r'/code', CodeBlockHandler),
     ],
 
         debug=True, **settings)

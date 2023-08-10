@@ -1,14 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chatbot</title>
+    <link rel="stylesheet" href="/static/highlight/styles/tokyo-night-dark.min.css">
+    <style>
+        .code-block {
+            /*border: 1px solid #ddd;*/
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            width: 800px;
+        }
+
+        .code-header {
+            background-color: #343542;
+            color: #9aa5ce;
+            font-size: 12px;
+            padding: 8px;
+            margin-bottom: -28px;
+            /*border-bottom: 1px solid #ddd;*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10px;
+        }
+
+        .language {
+            font-weight: bold;
+        }
+
+        .copy-button {
+            padding: 4px 8px;
+            background-color: #343542;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+    </style>
+
 </head>
 <body>
-    <div id="chat">
-        <div id="messages"></div>
-        <input type="text" id="input" placeholder="Type your question..." />
-        <button id="sendButton">Send</button>
-    </div>
-    <script src="/static/js/chat.js"></script>
+    <!-- Your HTML content here -->
+    <!-- Code blocks will be added later -->
+
+    <div class="code-block">
+        <div class="code-header">
+            <span id="programming_language" class="language">JavaScript</span>
+
+            <button class="copy-button" onclick="copyContent()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="height: 12px;">
+                    <path d="M16.02 20.96H3.78c-.41 0-.75-.34-.75-.75V7.74c0-.41.34-.75.75-.75h7.87c.21 0 .39.08.53.22l4.37 4.37c.14.14.22.32.22.53v8.11c0 .4-.34.74-.75.74ZM4.53 19.47h10.75v-6.61h-3.62c-.41 0-.75-.34-.75-.75V8.48H4.53v10.99Z"></path>
+                    <path d="m20.74 7.63-4.37-4.37c-.14-.14-.36-.2-.53-.22H8.01c-.41 0-.75.34-.75.75V5.5h1.49v-.97h6.34v3.62c0 .41.34.75.75.75h3.62v8.19h-1.2v1.49h1.95c.41 0 .75-.34.75-.75V8.16c0-.21-.08-.4-.22-.53Z"></path>
+                </svg>
+                Copy
+            </button>
+        </div>
+        <pre>
+            <code id="code" class="language-javascript">
+function greet() {
+    console.log("Hello, World!");
+}
+            </code>
+        </pre>
+        </div>
+
 </body>
 </html>
+
+<script src="/static/highlight/highlight.min.js"></script>
+<script>
+    // Initialize and trigger syntax highlighting
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre code').forEach(function(block) {
+            hljs.highlightBlock(block);
+        });
+    });
+
+    // Add copy code functionality
+        function copyContent() {
+            var CodeToCopy = document.getElementById('code');
+            // CodeToCopy.setSelectionRange(0, CodeToCopy.value.length);
+            var content = CodeToCopy.innerText;
+
+            navigator.clipboard.writeText(content)
+              .then(function() {
+                // alert('内容已成功复制到剪贴板！');
+              })
+              .catch(function(error) {
+                console.error('复制失败：', error);
+              });
+        }
+
+</script>
