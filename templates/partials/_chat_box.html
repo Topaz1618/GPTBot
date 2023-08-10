@@ -1,0 +1,66 @@
+<div>
+<div id="chat" style="">
+    {% set counter = 0 %}
+    {% for conversation in data %}
+    {% set counter = counter + 1 %}
+
+    {% if conversation["role"] == "user" %}
+
+    <div id="user_{{ counter }}" class="user">
+        <div style="width: 50%; margin-left: 25%; margin-top: -20px">
+        {{ conversation["content"] }}
+            </div>
+    </div>
+
+    {% elif conversation["role"] == "assistant" %}
+    {% set delimiter = '```' %}
+
+    <div id="bot_{{ counter }}" class="bot">
+        <div style="width: 50%; margin-left: 25%; margin-top: -40px">
+        {% if delimiter in conversation["content"] %}
+        {% set parts = conversation["content"].split(delimiter) %}
+        {{ parts[0] }}
+        <div id="code_model_{{ counter }}" class="code-block" style=" ">
+            <div class="code-header" style="    margin-bottom: -31px; position: relative; z-index: 999 !important;">
+                {% set pl_delimiter = '\n' %}
+                {% set pl_parts = parts[1].split(pl_delimiter) %}
+                {% set language = pl_parts[0] %}
+                <span class="language">{{ pl_parts[0] }}</span>
+
+                <button class="copy-button" onclick="copyContent(this)">
+                    <svg style="height: 16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V5C19 3.89543 18.1046 3 17 3Z"></path>
+                        <path d="M15 1H9C7.89543 1 7 1.89543 7 3V5H17V3C17 1.89543 16.1046 1 15 1Z"></path>
+                        <path d="M8 9H16"></path>
+                    </svg>
+
+                    <span style="height: 16px"> Copy code </span>
+                </button>
+
+            </div>
+            <pre >
+                 <code id="code_{{ counter }}" class="code language-javascript" style="margin-bottom: -54px; margin-top: -26px; border-top-right-radius: 10px; border-top-left-radius: 10px;">
+                     {% set code_parts = parts[1].split(language) %}
+                     {{ code_parts[1] }}
+                 </code>
+            </pre>
+        </div>
+
+
+        {{ parts[2] }}
+
+        {% else %}
+            {{ conversation["content"] }}
+        {% end %}
+
+        </div>
+    </div>
+
+    {% end %}
+    {% end %}
+
+
+</div>
+
+</div>
