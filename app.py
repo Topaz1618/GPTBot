@@ -40,7 +40,19 @@ class IndexHandler(tornado.web.RequestHandler):
 
 class CodeBlockHandler(tornado.web.RequestHandler):
     async def get(self):
-        self.render("test.html")
+        self.gpt = GptHandler()
+        conversation_history = self.gpt.get_conversation_history()
+        print(conversation_history)
+        self.render("test.html", data=conversation_history)
+
+
+class ConversationHistoryHandler(tornado.web.RequestHandler):
+    async def get(self):
+        self.gpt = GptHandler()
+        conversation_history = self.gpt.get_conversation_history()
+        print(conversation_history)
+        data = {"data": conversation_history}
+        self.write(data)
 
 
 class ChatHandler(tornado.websocket.WebSocketHandler):
@@ -93,6 +105,7 @@ if __name__ == '__main__':
         (r'/', IndexHandler),
         (r'/ws', ChatHandler),
         (r'/code', CodeBlockHandler),
+        (r'/conversation_history', ConversationHistoryHandler),
     ],
 
         debug=True, **settings)
