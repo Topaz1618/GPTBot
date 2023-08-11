@@ -104,8 +104,8 @@ function displayResponse(response) {
                 CodeModel = document.createElement("div");
                 CodeModel.className = "code-block";
                 CodeModel.style.position = "relative"
-                CodeModel.style.width = "50%";
-                CodeModel.style.marginLeft = "25%";
+                // CodeModel.style.width = "50%";
+                // CodeModel.style.marginLeft = "25%";
 
                 var CodeHeader = document.createElement("div");
                 CodeHeader.className = "code-header"
@@ -132,19 +132,19 @@ function displayResponse(response) {
 
                 CodePre.appendChild(Code);
                 CodeModel.appendChild(CodePre);
-                responseDiv.appendChild(CodeModel)
+                bot_content.appendChild(CodeModel)
 
 
             }else if(end_flag.includes('```') && is_code == true){
                 is_code = false;
                 end_flag = "";
-
+                bot_content.innerHTML += response;
+                
             }else if(is_code == true) {
                 if(response.includes('`')){
                     end_flag += response;
                 }else{
                     Code.innerHTML += response;
-
                 }
 
             }else{
