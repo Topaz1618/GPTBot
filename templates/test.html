@@ -2,9 +2,8 @@
 
 
 {% block content %}
-<div>
+<div id="messages" style="margin-bottom: 155px;">
 
-  new generate message
 </div>
 
 {% end  %}
@@ -18,7 +17,7 @@
   <div class="formbold-email-subscription-form" style=" width: 100%; border: 1px solid #DDE3EC; border-radius: 30px;">
     <textarea style="border-radius: 30px; height: 46px; overflow-y: auto;" name="chat_input" id="chat_input" placeholder="Send a message" class="formbold-form-input"></textarea>
 
-    <button class="formbold-btn" style=" margin-top: 3px;">
+    <button id="sendButton" class="formbold-btn" style=" margin-top: 3px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
         <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
       </svg>
@@ -31,6 +30,7 @@
 
 {% block js %}
 <script src="/static/highlight/highlight.min.js"></script>
+<script src="/static/js/chat.js"></script>
 
 <script>
     // Initialize and trigger syntax highlighting
@@ -42,7 +42,7 @@
 
     // Add copy code functionality
     function copyContent(obj) {
-        var CodeToCopy = obj.parentNode.parentNode.childNodes[3];
+        var CodeToCopy = obj.parentNode.parentNode.querySelector("code");
         var content = CodeToCopy.innerText;
 
         navigator.clipboard.writeText(content)
@@ -79,7 +79,6 @@
       const maxHeight = 122;
 
 
-
       if (textareaHeight > maxHeight) {
         textarea.style.height = `${maxHeight -2}px`;
         div.style.height = `${maxHeight}px`;
@@ -94,6 +93,40 @@
 
     });
 
+
+
+    function codeCreator(){
+        var CodeModel = document.createElement("div");
+        CodeModel.className = "code-block";
+        CodeModel.style.position = "relative"
+
+        var CodeHeader = document.createElement("div");
+        CodeHeader.className = "code-header"
+        CodeHeader.style.height = "26px"
+
+        var lang_info = document.createElement("span");
+        lang_info.className = "language";
+        lang_info.innerText = "python";
+
+        var btn = codeBtnCreator();
+        CodeHeader.appendChild(lang_info);
+        CodeHeader.appendChild(btn);
+        CodeModel.appendChild(CodeHeader);
+
+        var CodePre = document.createElement("pre");
+
+        var Code = document.createElement("code");
+
+        Code.className = "code language-python";
+        Code.style.marginTop = "28px";
+        Code.innerHTML = " import os \n print('Hello world')"
+
+        CodePre.appendChild(Code);
+        CodeModel.appendChild(CodePre);
+
+        document.getElementById("messages").appendChild(CodeModel);
+    }
+// codeCreator()
 
 </script>
 {% end  %}

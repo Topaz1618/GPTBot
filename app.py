@@ -86,6 +86,7 @@ class ChatHandler(tornado.websocket.WebSocketHandler):
                 print("content:", len(content), content)
                 self.gpt.sentence += content
                 self.write_message(content)
+                sleep(0.01)
                 idx += 1
 
 

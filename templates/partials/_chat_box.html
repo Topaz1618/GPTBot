@@ -1,5 +1,5 @@
 <div>
-<div id="chat" style="width: 102%; margin-left: -1%; margin-bottom: 155px;">
+<div id="chat" style="width: 102%; margin-left: -1%; ">
     {% set counter = 0 %}
     {% for conversation in data %}
     {% set counter = counter + 1 %}
@@ -40,7 +40,7 @@
 
             </div>
             <pre >
-                 <code id="code_{{ counter }}" class="code language-javascript" style="margin-bottom: -54px; margin-top: -26px; border-top-right-radius: 10px; border-top-left-radius: 10px;">
+                 <code id="code_{{ counter }}" class="code language-{{ pl_parts[0] }}" style="margin-bottom: -54px; margin-top: -26px; border-top-right-radius: 10px; border-top-left-radius: 10px;">
                      {% set code_parts = parts[1].split(language) %}
                      {{ code_parts[1] }}
                  </code>
