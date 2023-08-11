@@ -138,8 +138,9 @@ function displayResponse(response) {
             }else if(end_flag.includes('```') && is_code == true){
                 is_code = false;
                 end_flag = "";
+                hljs.highlightBlock(Code);
                 bot_content.innerHTML += response;
-                
+
             }else if(is_code == true) {
                 if(response.includes('`')){
                     end_flag += response;
@@ -183,3 +184,5 @@ inputField.addEventListener("keyup", event => {
         sendButton.click();
     }
 });
+
+
