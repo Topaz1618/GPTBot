@@ -2,15 +2,45 @@
 
 
 {% block content %}
-new generate message
+<div>
+
+  new generate message
+</div>
+
 {% end  %}
 
 
 
 {% block send_box %}
-input
-{% end  %}
 
+<!--<div class="formbold-main-wrapper">-->
+<!--  <div class="formbold-email-subscription-form">-->
+<!--    <textarea style="border-radius: 30px; height: 46px; max-height: 100px; overflow-y: auto;" name="chat_input" id="chat_input" placeholder="Send a message" class="formbold-form-input"></textarea>-->
+
+<!--    <button class="formbold-btn" style="margin-left: -58px; margin-top: 3px;">-->
+<!--      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">-->
+<!--        <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>-->
+<!--      </svg>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+<div class="formbold-main-wrapper">
+  <div class="formbold-email-subscription-form" style="    width: 100%; border: 1px solid #DDE3EC; border-radius: 30px;">
+    <textarea style="border-radius: 30px; height: 46px; max-height: 100px; overflow-y: auto;" name="chat_input" id="chat_input" placeholder="Send a message" class="formbold-form-input"></textarea>
+
+    <button class="formbold-btn" style="margin-right: 2px; margin-top: 3px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
+        <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+{% end %}
 
 {% block js %}
 <script src="/static/highlight/highlight.min.js"></script>
