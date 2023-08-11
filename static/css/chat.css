@@ -39,7 +39,8 @@
     overflow-y: auto;
     width: 100%;
   }
-  
+
+
 
   .formbold-email-subscription-form:focus {
     border-color: #6a64f1;
@@ -73,6 +74,7 @@
 
   *::-webkit-scrollbar,
   *::-webkit-scrollbar-thumb {
+    height: 6px;
     width: 6px;
     color: #ded9d9;
     border-radius: 13px;
