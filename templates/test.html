@@ -93,39 +93,37 @@
 
     });
 
-
-
-    function codeCreator(){
-        var CodeModel = document.createElement("div");
-        CodeModel.className = "code-block";
-        CodeModel.style.position = "relative"
-
-        var CodeHeader = document.createElement("div");
-        CodeHeader.className = "code-header"
-        CodeHeader.style.height = "26px"
-
-        var lang_info = document.createElement("span");
-        lang_info.className = "language";
-        lang_info.innerText = "python";
-
-        var btn = codeBtnCreator();
-        CodeHeader.appendChild(lang_info);
-        CodeHeader.appendChild(btn);
-        CodeModel.appendChild(CodeHeader);
-
-        var CodePre = document.createElement("pre");
-
-        var Code = document.createElement("code");
-
-        Code.className = "code language-python";
-        Code.style.marginTop = "28px";
-        Code.innerHTML = " import os \n print('Hello world')"
-
-        CodePre.appendChild(Code);
-        CodeModel.appendChild(CodePre);
-
-        document.getElementById("messages").appendChild(CodeModel);
-    }
+    // function codeCreator(){
+    //     var CodeModel = document.createElement("div");
+    //     CodeModel.className = "code-block";
+    //     CodeModel.style.position = "relative"
+    //
+    //     var CodeHeader = document.createElement("div");
+    //     CodeHeader.className = "code-header"
+    //     CodeHeader.style.height = "26px"
+    //
+    //     var lang_info = document.createElement("span");
+    //     lang_info.className = "language";
+    //     lang_info.innerText = "python";
+    //
+    //     var btn = codeBtnCreator();
+    //     CodeHeader.appendChild(lang_info);
+    //     CodeHeader.appendChild(btn);
+    //     CodeModel.appendChild(CodeHeader);
+    //
+    //     var CodePre = document.createElement("pre");
+    //
+    //     var Code = document.createElement("code");
+    //
+    //     Code.className = "code language-python";
+    //     Code.style.marginTop = "28px";
+    //     Code.innerHTML = " import os \n print('Hello world')"
+    //
+    //     CodePre.appendChild(Code);
+    //     CodeModel.appendChild(CodePre);
+    //
+    //     document.getElementById("messages").appendChild(CodeModel);
+    // }
 // codeCreator()
 
 </script>

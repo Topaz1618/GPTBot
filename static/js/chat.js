@@ -170,9 +170,11 @@ sendButton.addEventListener("click", () => {
     if (userQuestion.trim() !== "") {
         displayMessage(`${userQuestion}`);
         socket.send(userQuestion);
-
         // Clear input field
         inputField.value = "";
+
+        document.querySelector(".formbold-email-subscription-form").style.height = "48px"
+        document.getElementById("chat_input").style.height = "44px";
     }
 });
 
