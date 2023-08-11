@@ -178,9 +178,13 @@ sendButton.addEventListener("click", () => {
     }
 });
 
+
 function displayMessage(message) {
     var user_model = document.createElement("div")
     user_model.className = "user";
+    user_model.style.marginTop = "16px";
+    user_model.style.marginBottom = "16px";
+
     var user_content = document.createElement("div");
     user_content.style.width = "50%";
     user_content.style.marginLeft = "25%";
