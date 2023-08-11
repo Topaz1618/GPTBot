@@ -99,6 +99,7 @@ function displayResponse(response) {
             if (response.includes("\n")){
                 response += "<br><br>";
             }
+            window.scrollTo(0, document.body.scrollHeight);
 
             console.log("code：", is_code);
             if (response.includes('```') && is_code == false){
@@ -148,14 +149,12 @@ function displayResponse(response) {
                 }else if(lang==""){
                     lang = response;
                     lang_info.innerText = lang;
-                    // Code.className = "code language-python hljs";
                     Code.className = `code language-${lang} hljs`;
-                    console.log("!!!!!!!!", lang);
                 }else{
                     Code.innerHTML += response;
                 }
 
-                                hljs.highlightBlock(Code);
+                hljs.highlightBlock(Code);
 
             }else{
                 bot_content.innerHTML += response;
@@ -175,6 +174,7 @@ sendButton.addEventListener("click", () => {
 
         document.querySelector(".formbold-email-subscription-form").style.height = "48px"
         document.getElementById("chat_input").style.height = "44px";
+         window.scrollTo(0, document.body.scrollHeight);
     }
 });
 
