@@ -25,6 +25,7 @@ var accumulatedResponse = "";
 async function formatResponse(response) {
     if (response.includes("\n")){
         response = "<br>";
+        // console.log("ok")
     }
     responseDiv.innerHTML += response;
 
@@ -72,17 +73,19 @@ function codeBtnCreator(){
 
 
 function displayResponse(response) {
-    console.log(response)
+    // console.log(response)
     if (response === "START MSG") {
         isCollecting = true;
         is_code = false;
         end_flag = "";
+
         responseDiv = document.createElement("div");
         responseDiv.className = "bot"
         bot_content = document.createElement("div");
         bot_content.style.width = "50%";
         bot_content.style.marginLeft = "25%";
-
+        bot_content.style.marginTop = "15px";
+        bot_content.style.marginBottom = "28px";
         bot_content.textContent = "";
 
         responseDiv.appendChild(bot_content)
@@ -101,6 +104,8 @@ function displayResponse(response) {
             if (response.includes('```') && is_code == false){
                 is_code = true;
                 end_flag = "";
+                lang = "";
+
                 CodeModel = document.createElement("div");
                 CodeModel.className = "code-block";
                 CodeModel.style.position = "relative"
@@ -111,9 +116,8 @@ function displayResponse(response) {
                 CodeHeader.className = "code-header"
                 CodeHeader.style.height = "26px"
 
-                var lang_info = document.createElement("span");
+                lang_info = document.createElement("span");
                 lang_info.className = "language";
-                lang_info.innerText = "python";
 
                 var btn = codeBtnCreator();
                 CodeHeader.appendChild(lang_info);
@@ -124,9 +128,7 @@ function displayResponse(response) {
 
                 Code = document.createElement("code");
 
-                Code.className = "code language-python hljs";
                 Code.style.marginTop = "28px";
-
 
                 Code.innerHTML = ""
 
@@ -138,15 +140,22 @@ function displayResponse(response) {
             }else if(end_flag.includes('```') && is_code == true){
                 is_code = false;
                 end_flag = "";
-                hljs.highlightBlock(Code);
                 bot_content.innerHTML += response;
 
             }else if(is_code == true) {
                 if(response.includes('`')){
                     end_flag += response;
+                }else if(lang==""){
+                    lang = response;
+                    lang_info.innerText = lang;
+                    // Code.className = "code language-python hljs";
+                    Code.className = `code language-${lang} hljs`;
+                    console.log("!!!!!!!!", lang);
                 }else{
                     Code.innerHTML += response;
                 }
+
+                                hljs.highlightBlock(Code);
 
             }else{
                 bot_content.innerHTML += response;
