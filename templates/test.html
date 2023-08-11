@@ -13,12 +13,12 @@
 
 {% block send_box %}
 
-<div  style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white;">
+<div  style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white;     z-index: 9999;">
 <div class="formbold-main-wrapper">
   <div class="formbold-email-subscription-form" style=" width: 100%; border: 1px solid #DDE3EC; border-radius: 30px;">
     <textarea style="border-radius: 30px; height: 46px; overflow-y: auto;" name="chat_input" id="chat_input" placeholder="Send a message" class="formbold-form-input"></textarea>
 
-    <button class="formbold-btn" style="margin-right: 2px; margin-top: 3px;">
+    <button class="formbold-btn" style=" margin-top: 3px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
         <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
       </svg>
@@ -26,20 +26,6 @@
   </div>
 </div>
 </div>
-
-
-<!--<div class="formbold-main-wrapper">-->
-<!--  <div class="formbold-email-subscription-form" style="width: 100%; border: 1px solid #DDE3EC; border-radius: 30px;">-->
-<!--    <textarea style="border-radius: 30px; max-height: 122px; overflow-y: auto; resize: none;" name="chat_input" id="chat_input" placeholder="Send a message" class="formbold-form-input"></textarea>-->
-
-<!--    <button class="formbold-btn" style="margin-right: 2px; margin-top: 3px;">-->
-<!--      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">-->
-<!--        <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>-->
-<!--      </svg>-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
-
 
 {% end %}
 
@@ -108,29 +94,6 @@
 
     });
 
-  const textarea1 = document.getElementById('myTextarea');
 
-  textarea1.addEventListener('input', function() {
-    textarea1.style.height = 'auto'; // 将高度设置为自动，以便在重新计算高度之前重置高度
-
-    // 获取文本内容的高度
-    const textHeight = textarea1.scrollHeight;
-
-    // 设置最大高度，超过这个高度后向上增高
-    const maxHeight = 200;
-
-    // 根据文本内容的高度和最大高度计算新的高度
-    const newHeight = Math.min(textHeight, maxHeight);
-
-    // 计算需要调整的高度差值
-    const heightDifference = textarea1.clientHeight - newHeight;
-
-    // 如果需要调整高度，则将滚动条滚动到合适的位置
-    if (heightDifference !== 0) {
-      window.scrollBy(0, heightDifference);
-    }
-
-    textarea1.style.height = newHeight + 'px';
-  });
 </script>
 {% end  %}

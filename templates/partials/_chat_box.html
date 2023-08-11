@@ -20,8 +20,8 @@
         {% if delimiter in conversation["content"] %}
         {% set parts = conversation["content"].split(delimiter) %}
         {{ parts[0] }}
-        <div id="code_model_{{ counter }}" class="code-block" style=" ">
-            <div class="code-header" style="    margin-bottom: -31px; position: relative; z-index: 999 !important;">
+        <div id="code_model_{{ counter }}" class="code-block" style="position: relative; ">
+            <div class="code-header" style="margin-bottom: -31px;width: 100%;margin-top: -8px;height: 26px;position: absolute;z-index: 999 !important;">
                 {% set pl_delimiter = '\n' %}
                 {% set pl_parts = parts[1].split(pl_delimiter) %}
                 {% set language = pl_parts[0] %}
