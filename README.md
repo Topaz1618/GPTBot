@@ -1,6 +1,6 @@
 # GPTBot
 
-![Example Image](static/images/demo.png)
 
 
+# Demo
 ![Example Image](static/images/demo1.png)
