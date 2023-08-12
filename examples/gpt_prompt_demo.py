@@ -86,13 +86,12 @@ class PersonalAssistant(object):
 
 
 if __name__ == "__main__":
-    user_identifier = "User44"
+    user_identifier = "prompt7"
     conversation_key = f"conversation:{user_identifier}"
-
-    system_prompt = SYSTEM_PROMPT["Dating"]["v1"]["prompt"]
+    system_prompt = SYSTEM_PROMPT["Prompt"]["v1"]["prompt"]
 
     insert_system_prompt_if_not_exists(conversation_key, system_prompt)
-    user_prompt = {"role": "user", "content": ""}
+    user_prompt = {"role": "user", "content": "Help me use cat, Voltage, Resistance, Circuit, Motor, Amplifier, Battery, Grounding, Demodulation, Conductivity, Transformer, Magnetic Field, Capacitance, code to generate a rick and morty type 80 words story for kid."}
     assistant = PersonalAssistant()
     # assistant.generate_realtime_response(user_prompt2)
     assistant.generate_response(user_prompt)

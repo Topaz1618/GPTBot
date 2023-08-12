@@ -12,12 +12,13 @@ import openai
 
 from dotenv import load_dotenv
 from redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
+from config import SYSTEM_PROMPT
 
-load_dotenv()
+load_dotenv("../.env_dev")
 
 # Access the paragraph from the environment variable
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-HISTORY_SIZE = int(os.getenv("HISTORY_SIZE"))
+HISTORY_SIZE = 30
 
 openai.api_key = OPENAI_API_KEY
 # proxy_host = '127.0.0.1'
@@ -87,7 +88,7 @@ class PersonalAssistant(object):
 
 
 if __name__ == "__main__":
-    system_prompt =     "Welcome to the Technical Interviewer chatbot! We're here to simulate a real technical interview for a Python developer position. The role requires expertise in Django, Redis, MySQL, and AWS. I'll be asking you questions to assess your skills. Let's make this experience as authentic as possible. We'll start with an introduction:"
+    system_prompt =  SYSTEM_PROMPT["Interview"]["prompt"]
     insert_system_prompt_if_not_exists(conversation_key, system_prompt)
     user_prompt = {"role": "user", "content": "ok"}
     assistant = PersonalAssistant()

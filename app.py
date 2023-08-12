@@ -24,9 +24,11 @@ import os
 import asyncio
 import aiohttp
 import psutil
-from gpt_utils import GptHandler
-from redis_conn import save_message
+from utils.gpt_utils import GptHandler
+from utils.redis_conn import save_message
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class IndexHandler(tornado.web.RequestHandler):
     async def get(self):
@@ -88,7 +90,6 @@ class ChatHandler(tornado.websocket.WebSocketHandler):
                 self.write_message(content)
                 sleep(0.01)
                 idx += 1
-
 
     def on_close(self):
         print("WebSocket closed")

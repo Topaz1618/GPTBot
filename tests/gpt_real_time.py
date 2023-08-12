@@ -14,7 +14,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 HISTORY_SIZE = int(os.getenv("HISTORY_SIZE"))
 
 # openai.api_key = "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"
-system_prompt = "You are a good partner"
+system_prompt = ""
 user_identifier = "User1"
 conversation_key = f"conversation:{user_identifier}"
 
@@ -88,7 +88,7 @@ class PersonalAssistant(object):
 
 
 if __name__ == "__main__":
-    user_prompt = """ I love you """
+    user_prompt = """"""
     assistant = PersonalAssistant()
     # assistant.generate_realtime_response(user_prompt2)
     assistant.generate_response(user_prompt)

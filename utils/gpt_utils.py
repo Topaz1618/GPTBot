@@ -10,14 +10,13 @@ import os
 import json
 import openai
 
-from dotenv import load_dotenv
-from redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
 
-load_dotenv()
+from .redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
+from config import HISTORY_SIZE
 
 # Access the paragraph from the environment variable
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-HISTORY_SIZE = int(os.getenv("HISTORY_SIZE"))
+
 
 openai.api_key = OPENAI_API_KEY
 user_identifier = "Interviewer3"
