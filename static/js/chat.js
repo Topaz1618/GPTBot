@@ -95,9 +95,9 @@ function displayResponse(response) {
         isCollecting = false;
     } else {
         if (isCollecting) {
-            // console.log(response);
-            if (response.includes("\n")){
-                response += "<br><br>";
+            console.log(response);
+            if (response.includes("\n") && is_code == false){
+                response += "<br>";
             }
             window.scrollTo(0, document.body.scrollHeight);
 
@@ -110,8 +110,6 @@ function displayResponse(response) {
                 CodeModel = document.createElement("div");
                 CodeModel.className = "code-block";
                 CodeModel.style.position = "relative"
-                // CodeModel.style.width = "50%";
-                // CodeModel.style.marginLeft = "25%";
 
                 var CodeHeader = document.createElement("div");
                 CodeHeader.className = "code-header"
@@ -151,7 +149,8 @@ function displayResponse(response) {
                     lang_info.innerText = lang;
                     Code.className = `code language-${lang} hljs`;
                 }else{
-                    Code.innerHTML += response;
+                    console.log("!!!!!!",response);
+                    Code.textContent += response;
                 }
 
                 hljs.highlightBlock(Code);
