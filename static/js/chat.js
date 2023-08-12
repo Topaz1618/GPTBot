@@ -81,11 +81,13 @@ function displayResponse(response) {
 
         responseDiv = document.createElement("div");
         responseDiv.className = "bot"
+        responseDiv.style.color = "#374151"
+        responseDiv.style.borderBottom = "solid 1px rgba(0,0,0,.1)"
         bot_content = document.createElement("div");
         bot_content.style.width = "50%";
         bot_content.style.marginLeft = "25%";
-        bot_content.style.marginTop = "15px";
-        bot_content.style.marginBottom = "28px";
+        bot_content.style.marginTop = "17px";
+        bot_content.style.marginBottom = "17px";
         bot_content.textContent = "";
 
         responseDiv.appendChild(bot_content)
@@ -181,12 +183,15 @@ sendButton.addEventListener("click", () => {
 function displayMessage(message) {
     var user_model = document.createElement("div")
     user_model.className = "user";
-    user_model.style.marginTop = "16px";
-    user_model.style.marginBottom = "16px";
+    user_model.style.borderBottom = "solid 1px rgba(0,0,0,.1)"
+    user_model.style.color = "#343541";
 
     var user_content = document.createElement("div");
     user_content.style.width = "50%";
     user_content.style.marginLeft = "25%";
+    user_content.style.marginTop = "17px";
+    user_content.style.marginBottom = "17px";
+
 
     user_content.innerHTML = message;
     user_model.appendChild(user_content);

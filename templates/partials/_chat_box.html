@@ -6,7 +6,7 @@
 
     {% if conversation["role"] == "user" %}
 
-    <div id="user_{{ counter }}" class="user">
+    <div id="user_{{ counter }}" class="user" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #343541;">
         <div style="width: 50%; margin-left: 25%; margin-top: -20px">
         {{ conversation["content"] }}
             </div>
@@ -15,8 +15,8 @@
     {% elif conversation["role"] == "assistant" %}
     {% set delimiter = '```' %}
 
-    <div id="bot_{{ counter }}" class="bot">
-        <div style="width: 50%; margin-left: 25%; margin-top: -40px">
+    <div id="bot_{{ counter }}" class="bot" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #374151;">
+        <div style="width: 50%; margin-left: 25%; margin-top: -34px; margin-bottom: -17px;">
         {% if delimiter in conversation["content"] %}
         {% set parts = conversation["content"].split(delimiter) %}
         {{ parts[0] }}
