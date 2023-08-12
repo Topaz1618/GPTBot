@@ -25,8 +25,6 @@ openai.api_key = OPENAI_API_KEY
 # proxy_url = f'https://{proxy_host}:{proxy_port}'
 # os.environ['HTTPS_PROXY'] = proxy_url
 
-user_identifier = "User8"
-conversation_key = f"conversation:{user_identifier}"
 
 
 class PersonalAssistant(object):
@@ -87,11 +85,13 @@ class PersonalAssistant(object):
 
 
 if __name__ == "__main__":
-    system_prompt = "Imagine we're in a romantic relationship. You're my perfect less talktive partner, affectionate and caring. Respond to my messages with love and warmth, just like we're chatting as a couple. Keep your replies concise and use casual language. Let's make our conversation feel authentic and natural on SnapChat or Tinder! Let's filter with each other"
+    user_identifier = "User44"
+    conversation_key = f"conversation:{user_identifier}"
 
-    system_prompt = "Imagine we're in a romantic relationship. You're my amazing partner, affectionate and caring. Respond with love and warmth, like we're chatting on Snapchat or Tinder! Keep your replies concise, using casual language with words no longer than 10 characters. Let's make our conversation feel authentic and natural. Feel free to discuss topics like future plans, marriage, sex, and starting a family. I'm here to provide companionship and support. Let's create a relationship robot that understands and empathizes with you!"
+    system_prompt = ""
+
     insert_system_prompt_if_not_exists(conversation_key, system_prompt)
-    user_prompt = {"role": "user", "content": "weat kiss?"}
+    user_prompt = {"role": "user", "content": ""}
     assistant = PersonalAssistant()
     # assistant.generate_realtime_response(user_prompt2)
     assistant.generate_response(user_prompt)
