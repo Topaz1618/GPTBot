@@ -12,7 +12,7 @@ import openai
 
 from dotenv import load_dotenv
 from redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
-from config import SYSTEM_PROMPT
+from config import prompt_settings
 load_dotenv()
 
 # Access the paragraph from the environment variable
@@ -83,7 +83,7 @@ class PersonalAssistant(object):
 
 
 if __name__ == "__main__":
-    system_prompt = SYSTEM_PROMPT["Interview"]["prompt"]
+    system_prompt = prompt_settings["Interview"]["prompt"]
     insert_system_prompt_if_not_exists(conversation_key, system_prompt)
     user_prompt = {"role": "user", "content": "ok"}
     assistant = PersonalAssistant()

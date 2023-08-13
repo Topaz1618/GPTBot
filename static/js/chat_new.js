@@ -5,19 +5,6 @@ const sendButton = document.getElementById("sendButton");
 
 socket.onopen = event => {
     console.log("WebSocket connection opened");
-    var type = window.location.pathname;
-    // 在这里可以使用 JavaScript 中的 type 变量
-    console.log(type);
-
-    const data = {
-      "command_type": 1,
-      "payload": type.split("/")[1]
-    };
-
-    const jsonData = JSON.stringify(data);
-    socket.send(jsonData);
-
-    // socket.send(jsonData);
 };
 
 socket.onmessage = event => {
@@ -182,14 +169,7 @@ sendButton.addEventListener("click", () => {
     const userQuestion = inputField.value;
     if (userQuestion.trim() !== "") {
         displayMessage(`${userQuestion}`);
-
-        const data = {
-          "command_type": 2,
-          "payload": userQuestion
-        };
-        const jsonData = JSON.stringify(data);
-
-        socket.send(jsonData);
+        socket.send(userQuestion);
         // Clear input field
         inputField.value = "";
 

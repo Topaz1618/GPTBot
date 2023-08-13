@@ -12,7 +12,7 @@ import openai
 
 from dotenv import load_dotenv
 from redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
-from config import SYSTEM_PROMPT
+from config import prompt_settings
 
 load_dotenv("../.env_dev")
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     user_identifier = "User44"
     conversation_key = f"conversation:{user_identifier}"
 
-    system_prompt = SYSTEM_PROMPT["Dating"]["v1"]["prompt"]
+    system_prompt = prompt_settings["Dating"]["v1"]["prompt"]
 
     insert_system_prompt_if_not_exists(conversation_key, system_prompt)
     user_prompt = {"role": "user", "content": ""}

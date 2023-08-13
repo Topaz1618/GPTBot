@@ -31,11 +31,15 @@ def insert_message(conversation_key, message):
     # Save the new message to the Redis List
     redis_client.lpush(conversation_key, json.dumps(message))
 
+
 def get_conversation_history(conversation_key, count):
     # Retrieve the entire conversation history from the Redis List
-    history = redis_client.lrange(conversation_key, 0, count - 1)
-    return [json.loads(message) for message in history]
+    if redis_client.exists(conversation_key):
+        history = redis_client.lrange(conversation_key, 0, count - 1)
 
+    else:
+        history = list()
+    return [json.loads(message) for message in history]
 
 def update_latest_question(conversation_key, user_question, assistant_response):
     # Update the Redis Hash with the latest user question and assistant response
@@ -49,9 +53,9 @@ if __name__ == "__main__":
     conversation_key = f"conversation:{user_identifier}"
 
     # Sample messages
-    system_message = {"role": "system", "content": "You are a best partner can show love."}
-    user_message = {"role": "user", "content": "How've you been"}
-    assistant_message = {"role": "assistant", "content": "All good"}
+    system_message = {"role": "system", "content": "."}
+    user_message = {"role": "user", "content": ""}
+    assistant_message = {"role": "assistant", "content": ""}
 
     # Save user and assistant messages
     insert_message(conversation_key, system_message)

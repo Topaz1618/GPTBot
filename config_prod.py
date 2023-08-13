@@ -9,7 +9,7 @@ This code is licensed under the GNU General Public License v3.0.
 HISTORY_SIZE = 30
 
 
-SYSTEM_PROMPT = {
+prompt_settings = {
     "Language": {
         "prompt": "You are a language learning assistant robot.",
         "desc": ""
