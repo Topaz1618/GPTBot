@@ -213,7 +213,7 @@ function displayMessage(message) {
     user_content.style.marginBottom = "17px";
 
 
-    user_content.innerHTML = message;
+    user_content.innerText = message;
     user_model.appendChild(user_content);
     messagesDiv.appendChild(user_model);
 }

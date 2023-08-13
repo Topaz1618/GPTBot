@@ -16,7 +16,11 @@
     {% set delimiter = '```' %}
 
     <div id="bot_{{ counter }}" class="bot" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #374151;">
+
+<!--        <img alt="ChatGPT" style="width: 20px; height: 20px;" src="/static/images/chatGPTAvatar.png" >-->
+
         <div style="width: 50%; margin-left: 25%; margin-top: -34px; margin-bottom: -17px;">
+
         {% if delimiter in conversation["content"] %}
         {% set parts = conversation["content"].split(delimiter) %}
         {{ parts[0] }}
