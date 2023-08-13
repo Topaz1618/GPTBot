@@ -49,7 +49,7 @@ class AssistantHandler(tornado.web.RequestHandler):
         if not conversation_history:
             conversation_history = list()
 
-        self.render("test.html", data=conversation_history)
+        self.render("chatbot.html", data=conversation_history)
 
 
 class LanguageHandler(tornado.web.RequestHandler):
@@ -58,7 +58,7 @@ class LanguageHandler(tornado.web.RequestHandler):
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Language.value)
         conversation_history = self.gpt.get_conversation_history()
         print(conversation_history)
-        self.render("test.html", data=conversation_history)
+        self.render("chatbot.html", data=conversation_history)
 
 
 class DatingHandler(tornado.web.RequestHandler):
@@ -75,7 +75,7 @@ class InterviewHandler(tornado.web.RequestHandler):
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Interview.value)
         conversation_history = self.gpt.get_conversation_history()
         print(conversation_history)
-        self.render("test.html", data=conversation_history)
+        self.render("chatbot.html", data=conversation_history)
 
 
 class PromptHandler(tornado.web.RequestHandler):
@@ -84,7 +84,7 @@ class PromptHandler(tornado.web.RequestHandler):
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Prompt.value)
         conversation_history = self.gpt.get_conversation_history()
         print(conversation_history)
-        self.render("test.html", data=conversation_history)
+        self.render("chatbot.html", data=conversation_history)
 
 
 class ConversationHistoryHandler(tornado.web.RequestHandler):
