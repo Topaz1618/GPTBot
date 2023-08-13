@@ -43,10 +43,10 @@
                 </button>
 
             </div>
-            <pre >
-                 <code id="code_{{ counter }}" class="code language-{{ pl_parts[0] }}" style="margin-bottom: -54px; margin-top: -26px; border-top-right-radius: 10px; border-top-left-radius: 10px;">
-                     {% set code_parts = parts[1].split(language) %}
-                     {{ code_parts[1] }}
+            <pre>
+                 <code id="code_{{ counter }}" class="code language-{{ pl_parts[0] }}" style="margin-bottom: -54px; margin-top: -58px; border-top-right-radius: 10px; border-top-left-radius: 10px;">
+                     {% set code_parts = parts[1].split(language + "\n") %}
+                     {{  code_parts[1] }}
                  </code>
             </pre>
         </div>
