@@ -44,8 +44,9 @@ class AssistantHandler(tornado.web.RequestHandler):
         # 历史记录，基于话题和user选择
         self.gpt = GptHandler()
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.ChatGPT.value)
-        conversation_history = self.gpt.get_conversation_history()
+        conversation_history = self.gpt.get_conversation_history(size=100)
         print(conversation_history)
+
         if not conversation_history:
             conversation_history = list()
 
@@ -56,7 +57,7 @@ class LanguageHandler(tornado.web.RequestHandler):
     async def get(self):
         self.gpt = GptHandler()
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Language.value)
-        conversation_history = self.gpt.get_conversation_history()
+        conversation_history = self.gpt.get_conversation_history(size=100)
         print(conversation_history)
         self.render("chatbot.html", data=conversation_history)
 
@@ -64,7 +65,7 @@ class LanguageHandler(tornado.web.RequestHandler):
 class DatingHandler(tornado.web.RequestHandler):
     async def get(self):
         self.gpt = GptHandler()
-        conversation_history = self.gpt.get_conversation_history()
+        conversation_history = self.gpt.get_conversation_history(size=100)
         print(conversation_history)
         self.render("test.html", data=conversation_history)
 
@@ -73,7 +74,7 @@ class InterviewHandler(tornado.web.RequestHandler):
     async def get(self):
         self.gpt = GptHandler()
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Interview.value)
-        conversation_history = self.gpt.get_conversation_history()
+        conversation_history = self.gpt.get_conversation_history(size=100)
         print(conversation_history)
         self.render("chatbot.html", data=conversation_history)
 
@@ -82,7 +83,7 @@ class PromptHandler(tornado.web.RequestHandler):
     async def get(self):
         self.gpt = GptHandler()
         self.gpt.generate_key_name(user="User1", prompt_type=PromptEnum.Prompt.value)
-        conversation_history = self.gpt.get_conversation_history()
+        conversation_history = self.gpt.get_conversation_history(size=100)
         print(conversation_history)
         self.render("chatbot.html", data=conversation_history)
 

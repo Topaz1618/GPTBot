@@ -78,16 +78,19 @@ class GptHandler:
         unique_history = self.remove_duplicate_messages(messages)
         return unique_history
 
-    def get_conversation_history(self):
-        # from ipdb import set_trace;
-        # set_trace()
-        messages = get_conversation_history(self.key, HISTORY_SIZE)
+    def get_conversation_history(self, size=None):
+        if not size:
+            size = HISTORY_SIZE
+
+        messages = get_conversation_history(self.key, size)
+
         if messages:
             unique_history = self.remove_duplicate_messages(messages)
-
         else:
             unique_history = list()
+
         return unique_history
+
 
 if __name__ == "__main__":
     # system_prompt = "Welcome to the Technical Interviewer chatbot! We're here to simulate a real technical interview for a Python developer position. The role requires expertise in Django, Redis, MySQL, and AWS. I'll be asking you questions to assess your skills. Let's make this experience as authentic as possible. We'll start with an introduction:"

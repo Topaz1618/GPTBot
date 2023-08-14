@@ -8,19 +8,21 @@
 
     <div id="user_{{ counter }}" class="user" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #343541;">
         <div style="width: 50%; margin-left: 25%; margin-top: -20px">
-        {{ conversation["content"] }}
-            </div>
+            {{ conversation["content"] }}
+        </div>
     </div>
 
     {% elif conversation["role"] == "assistant" %}
     {% set delimiter = '```' %}
 
-    <div id="bot_{{ counter }}" class="bot" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #374151;">
+    <div id="bot_{{ counter }}" class="bot" style="border-bottom: solid 1px rgba(0,0,0,.1); color: #374151; display: flex;">
 
-<!--        <img alt="ChatGPT" style="width: 20px; height: 20px;" src="/static/images/chatGPTAvatar.png" >-->
+<!--        <div class="div-item" style="float: left; width: 1%; margin-left: 23%; position: relative;">-->
+<!--            <img src="/static/images/chatGPTAvatar.png" style="width: 20px; height: 20px; position: absolute; top: 26%;">-->
+<!---->
+<!--        </div>-->
 
-        <div style="width: 50%; margin-left: 25%; margin-top: -34px; margin-bottom: -17px;">
-
+        <div style="float: left; width: 50%; margin-left: 25%; margin-top: -21px; margin-bottom: -8px;">
         {% if delimiter in conversation["content"] %}
         {% set parts = conversation["content"].split(delimiter) %}
         {{ parts[0] }}
@@ -30,7 +32,6 @@
                 {% set pl_parts = parts[1].split(pl_delimiter) %}
                 {% set language = pl_parts[0] %}
                 <span class="language">{{ pl_parts[0] }}</span>
-
                 <button class="copy-button" onclick="copyContent(this)">
                     <svg style="height: 16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -38,7 +39,6 @@
                         <path d="M15 1H9C7.89543 1 7 1.89543 7 3V5H17V3C17 1.89543 16.1046 1 15 1Z"></path>
                         <path d="M8 9H16"></path>
                     </svg>
-
                     <span style="height: 16px"> Copy code </span>
                 </button>
 
@@ -50,8 +50,6 @@
                  </code>
             </pre>
         </div>
-
-
         {{ parts[2] }}
 
         {% else %}

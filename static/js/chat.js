@@ -171,7 +171,22 @@ function displayResponse(response) {
                 hljs.highlightBlock(Code);
 
             }else{
-                bot_content.innerHTML += response;
+                if (response.includes('div')){
+                    // response =  "<span>" + response + "</span>";
+                    var element = document.createElement('span');
+                    element.innerText = response;
+                    bot_content.appendChild(element);
+                }
+                else if (response.includes('`<') || response.includes('<h')){
+                    var element = document.createElement('span');
+                    // response =  "<span>" + response + "</span>";
+                    element.innerText = response;
+                    bot_content.appendChild(element);
+                }
+
+                else {
+                    bot_content.innerHTML += response;
+                }
             }
 
         }
