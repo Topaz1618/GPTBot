@@ -5,17 +5,21 @@ Email: topaz1668@gmail.com
 
 This code is licensed under the GNU General Public License v3.0.
 """
-
+import os
 from dotenv import load_dotenv
 
 
 ENV = 'DEV'
-# ENV = 'PROD'
 
 if ENV == 'DEV':
     from config_dev import *
-    load_dotenv('.env_dev')
+    env_file = '.env_dev'
 
-elif env == 'PROD':
+elif ENV == 'PROD':
     from config_prod import *
-    load_dotenv('.env_prod')
+    env_file = '.env_prod'
+
+load_dotenv(env_file)
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = int(os.getenv("REDIS_PORT"))
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

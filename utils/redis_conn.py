@@ -11,8 +11,9 @@ This code is licensed under the GNU General Public License v3.0.
 import json
 import redis
 
+from config import REDIS_PORT, REDIS_HOST
 # Connect to Redis
-redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
+redis_client = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, db=0)
 
 
 def insert_system_prompt_if_not_exists(conversation_key, system_prompt):

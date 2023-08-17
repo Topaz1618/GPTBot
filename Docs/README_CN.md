@@ -26,14 +26,6 @@ GPTBot项目使用以下技术栈和工具：
 
 ## 安装和使用
 
-以下是分别针对Docker，Docker Compose 和手动启动程序示例，其中 Docker 和手动启动需要本地安装和启动Redis。
-
-### Docker 方式启动程序
-```
-docker build -t gptbot-app .
-docker run -p 8000:8000 gptbot-app
-```
-
 ### Docker Compose 方式启动程序
 ```
 docker-compose up
@@ -46,6 +38,13 @@ docker-compose up
 
 ```
 pip install -r requirements.txt
+```
+
+#### 配置Redis连接
+vim `.env_prod`
+```
+redis_host=your_redis_host
+redis_port=your_redis_port
 ```
 
 

@@ -23,14 +23,9 @@ GPTBot utilizes the following technology stack and tools:
 
 ## Installation and Usage
 
-### Docker Startup
-```
-docker build -t gptbot-app .
-docker run -p 8000:8000 gptbot-app
-```
-
 ### Docker Compose Startup
 ```
+docker-compose build
 docker-compose up
 ```
 
@@ -43,6 +38,15 @@ You can install the required dependencies using the following command:
 pip install -r requirements.txt
 ```
 
+#### Configure Redis Connection
+
+Modify the following lines with your Redis host and port:
+
+vim .env_prod
+```
+redis_host=your_redis_host
+redis_port=your_redis_port
+```
 
 #### RUN
 ```

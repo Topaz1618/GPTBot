@@ -12,10 +12,7 @@ import openai
 
 
 from .redis_conn import insert_system_prompt_if_not_exists, save_message, get_conversation_history
-from config import HISTORY_SIZE, prompt_settings, PromptEnum
-
-# Access the paragraph from the environment variable
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+from config import HISTORY_SIZE, OPENAI_API_KEY, prompt_settings, PromptEnum
 
 
 openai.api_key = OPENAI_API_KEY
