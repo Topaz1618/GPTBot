@@ -31,6 +31,7 @@ load_dotenv()
 from config import prompt_settings, PromptEnum
 from enums import MessageType
 
+
 class IndexHandler(tornado.web.RequestHandler):
     async def get(self):
         self.gpt = GptHandler()

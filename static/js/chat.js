@@ -194,6 +194,8 @@ function displayResponse(response) {
 }
 
 sendButton.addEventListener("click", () => {
+    inputField.scrollLeft = inputField.scrollWidth
+
     const userQuestion = inputField.value;
     if (userQuestion.trim() !== "") {
         displayMessage(`${userQuestion}`);
