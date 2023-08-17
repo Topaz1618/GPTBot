@@ -53,11 +53,13 @@ redis_port=your_redis_port
 python app.py
 ```
 
-## Demo1
+## Example
+
+### Input Box
 ![Example Image](/static/images/demo2.png)
 
 
-## Demo2
+### ChatBot
 ![Example Image](/static/images/demo.gif)
 
 
