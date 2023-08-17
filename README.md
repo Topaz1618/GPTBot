@@ -42,8 +42,8 @@ pip install -r requirements.txt
 
 Modify the following lines with your Redis host and port:
 
-vim .env_prod
 ```
+$ vim .env_prod
 redis_host=your_redis_host
 redis_port=your_redis_port
 ```
