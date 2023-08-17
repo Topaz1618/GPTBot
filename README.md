@@ -57,7 +57,7 @@ python app.py
 ![Example Image](/static/images/demo.gif)
 
 ## Demo2
-![Example Image](/static/images/demo2.gif)
+![Example Image](/static/images/demo2.png)
 
 
 
