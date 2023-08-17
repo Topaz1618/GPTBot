@@ -15,14 +15,13 @@
 ## 技术栈
 GPTBot项目使用以下技术栈和工具：
 
-- Python：主要编程语言
-- Tornado：Web框架，用于构建基于WebSocket的实时应用程序。
-- JavaScript：用于编写前端交互逻辑和实现WebSocket通信。
-- HTML/CSS：用于构建项目的前端界面和样式。
-- GPT模型：用于文本生成的核心模型。
-- Docker：容器化平台，用于方便地构建、部署和运行应用程序。
-- Redis：用于作为GPTBot应用程序的依赖项，提供缓存和数据存储功能。
-
+- Python
+- JavaScript
+- Tornado
+- HTML/CSS
+- gpt-3.5模型：用于文本生成的核心模型。
+- Redis：为GPTBot应用提供缓存和数据存储功能
+- Docker
 
 
 ## 安装和使用
