@@ -1,4 +1,9 @@
 # GPTBot
+
+GPTBot English Version
+
+GPTBot 中文版本
+[中文README](/Docs/README.md)
 GPTBot is a project built on the Tornado framework, utilizing WebSocket for real-time bidirectional communication. It enables various text generation capabilities by interacting with the GPT model.
 
 ## Features
@@ -51,10 +56,10 @@ python app.py
 ```
 
 ## Demo1
-![Example Image](../static/images/demo.gif)
+![Example Image](/static/images/demo.gif)
 
 ## Demo2
-![Example Image](../static/images/demo2.gif)
+![Example Image](/static/images/demo2.gif)
 
 
 

@@ -1,4 +1,6 @@
 # GPTBot
+[GPTBot English Version](../README.md)
+
 该项目基于Tornado框架构建，使用WebSocket实现实时的双向通信。它通过与GPT模型的交互，实现了文本生成的多个功能。
 
 ## 功能特点
