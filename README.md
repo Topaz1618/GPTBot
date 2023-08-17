@@ -54,10 +54,11 @@ python app.py
 ```
 
 ## Demo1
-![Example Image](/static/images/demo.gif)
+![Example Image](/static/images/demo2.png)
+
 
 ## Demo2
-![Example Image](/static/images/demo2.png)
+![Example Image](/static/images/demo.gif)
 
 
 
