@@ -59,6 +59,8 @@ python app.py
 
 
 # Copyright and License
-GPTBot is licensed under the MIT License. Refer to the LICENSE file for more information.
+GPTBot is licensed under the [MIT License](LICENSE) License. Refer to the LICENSE file for more information.
+
+
 
 Please feel free to ask any questions or provide suggestions. Thank you for using and contributing to GPTBot!
